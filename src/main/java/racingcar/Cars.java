@@ -3,6 +3,7 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 
+// 일급 컬렉션을 사용
 public class Cars {
     private final ArrayList<Car> cars;
 
@@ -34,18 +35,18 @@ public class Cars {
 
     private String getWinner() {
         StringBuilder winner = new StringBuilder();
-        int winnersLaps = 0;
+        int previousLaps = 0;
 
         for (Car car : cars) {
-            if (winnersLaps == car.getLapCount()) {
+            if (previousLaps == car.getLapCount()) {
                 winner.append(", ").append(car.getName());
             }
 
-            if (winnersLaps < car.getLapCount()) {
+            if (previousLaps < car.getLapCount()) {
                 winner = new StringBuilder(car.getName());
             }
 
-            winnersLaps = car.getLapCount();
+            previousLaps = car.getLapCount();
         }
 
         return winner.toString();
