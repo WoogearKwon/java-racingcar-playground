@@ -1,21 +1,32 @@
 package racingcar;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class CarTest {
+    Car testCar;
+
+    @BeforeEach
+    void setUp() {
+        testCar = new Car("testCar");
+    }
 
     @Test
     void sample_car_create() {
-        Car sample = new Car("sample");
-        assertThat(sample.getName()).isEqualTo("sample");
+        assertThat(testCar.getName()).isEqualTo("testCar");
     }
 
     @Test
     void sample_car_run() {
-        Car sample = new Car("sample");
-        sample.go();
-        assertThat(sample.getDistance()).isEqualTo(1);
+        testCar.go();
+        assertThat(testCar.getDistance()).isEqualTo(1);
+    }
+
+    @Test
+    void test_racing_5laps() {
+        testCar.startRacing(5);
+        assertThat(testCar.getLapCount()).isEqualTo(5);
     }
 }
