@@ -1,5 +1,12 @@
 ## [NEXTSTEP 플레이그라운드의 미션 진행 과정](https://github.com/next-step/nextstep-docs/blob/master/playground/README.md)
 
+### TODO
+- Car 클래스 생성
+- car.race() 메서드 생성
+    - 시도 횟수에 따라 50% 확률로 앞으로 진행
+    - 앞으로 진행 시 "-"가 진행한 만큼 출력
+
+
 ### 기능 요구사항
 - 각 자동차에 이름을 부여할 수 있다. 자동차 이름은 5자를 초과할 수 없다.
 - 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
