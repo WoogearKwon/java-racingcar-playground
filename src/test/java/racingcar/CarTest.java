@@ -3,6 +3,8 @@ package racingcar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class CarTest {
@@ -20,13 +22,19 @@ public class CarTest {
 
     @Test
     void sample_car_run() {
-        testCar.go();
-        assertThat(testCar.getDistance()).isEqualTo(1);
+        testCar.progressOneLap();
+        assertThat(testCar.getLapCount()).isEqualTo(1);
     }
 
     @Test
-    void test_racing_5laps() {
-        testCar.startRacing(5);
-        assertThat(testCar.getLapCount()).isEqualTo(5);
+    void test_racing() {
+        testCar.startRacing();
+        assertThat(testCar.getLapCount()).isEqualTo(1);
+    }
+
+    @Test
+    void test_cars_5laps() {
+        Cars cars = new Cars(Arrays.asList("Woog", "Minn", "Jake"));
+        cars.startRacing(5);
     }
 }
