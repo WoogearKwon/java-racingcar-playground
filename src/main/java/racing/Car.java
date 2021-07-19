@@ -22,6 +22,18 @@ public class Car {
         return position;
     }
 
+    public void move(RandomMovingStrategy strategy) {
+        if (strategy.movable()) {
+            position++;
+        }
+    }
+
+    public void move(MovingStrategy strategy) {
+        if (strategy.movable()) {
+            position++;
+        }
+    }
+
     public void move() {
         if (getRandomNumber() >= FORWARD_INT) {
             position++;
