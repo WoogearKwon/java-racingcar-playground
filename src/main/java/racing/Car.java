@@ -6,15 +6,26 @@ public class Car {
     private static final int FORWARD_INT = 4;
     private static final int MAX_BOUND = 10;
 
-    private final String name;
+    private final Name name;
     private int position;
 
+    /* 원시값과 문자열을 포장한다. */
+    private Position position2;
+
     public Car(String name) {
-        this.name = name;
-        this.position = 0;
+        if (StringUtils.isBlank(name)) {
+            throw new IllegalArgumentException("Car name cannot be blank");
+        }
+
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("Car name should be within 5 letters");
+        }
+
+        this.name = new Name(name.trim());
+        this.position2 = new Position();
     }
 
-    public String getName() {
+    public Name getName() {
         return name;
     }
 
@@ -31,6 +42,12 @@ public class Car {
     public void move(MovingStrategy strategy) {
         if (strategy.movable()) {
             position++;
+        }
+    }
+
+    public void move(int randomNumber) {
+        if (randomNumber >= MAX_BOUND) {
+            position2 = position2.move();
         }
     }
 

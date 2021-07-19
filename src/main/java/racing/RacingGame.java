@@ -1,4 +1,5 @@
-import java.util.Random;
+package racing;
+
 
 public class RacingGame {
 }
