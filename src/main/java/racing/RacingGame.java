@@ -1,5 +1,7 @@
 package racing;
 
+import view.ResultView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,9 +34,14 @@ public class RacingGame {
     public void startGame() {
         cars.move(tryNumber);
         isFinished = true;
+        printWinners();
     }
 
     public boolean isFinished() {
         return isFinished;
+    }
+
+    public void printWinners() {
+        ResultView.printWinners(cars.findWinners());
     }
 }

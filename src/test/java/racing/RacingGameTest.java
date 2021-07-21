@@ -20,12 +20,4 @@ public class RacingGameTest {
         game.startGame();
         assertThat(game.isFinished()).isTrue();
     }
-
-    @Test
-    void findWinnersTest() {
-        RacingGame game = new RacingGame("woo,goo,koo", 3);
-        game.startGame();
-
-
-    }
 }

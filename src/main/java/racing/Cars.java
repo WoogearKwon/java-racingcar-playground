@@ -12,7 +12,13 @@ public class Cars {
 
     public void move(int tryNumber) {
         for (int i = 0; i < tryNumber; i++) {
-            cars.get(i).move();
+            moveCars();
+        }
+    }
+
+    private void moveCars() {
+        for (Car car : cars) {
+            car.move();
         }
     }
 
