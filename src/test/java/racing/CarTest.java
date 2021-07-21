@@ -14,7 +14,7 @@ public class CarTest {
     void move1() {
         Car car = new Car("test");
         car.move();
-        assertThat(car.getPosition()).isEqualTo(1);
+        assertThat(car.getPositionNumber()).isEqualTo(1);
     }
 
     /*
@@ -25,7 +25,7 @@ public class CarTest {
     void move2() {
         Car car = new Car("test");
         car.move(() -> true);
-        assertThat(car.getPosition()).isEqualTo(1);
+        assertThat(car.getPositionNumber()).isEqualTo(1);
     }
 
     /*
@@ -41,13 +41,13 @@ public class CarTest {
                 return true;
             }
         });
-        assertThat(car.getPosition()).isEqualTo(1);
+        assertThat(car.getPositionNumber()).isEqualTo(1);
     }
 
     @Test
     void stop() {
         Car car = new Car("test");
         car.move(() -> false);
-        assertThat(car.getPosition()).isEqualTo(0);
+        assertThat(car.getPositionNumber()).isEqualTo(0);
     }
 }

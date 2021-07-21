@@ -7,10 +7,10 @@ public class Car {
     private static final int MAX_BOUND = 10;
 
     private final Name name;
-    private int position;
+    private int positionInt;
 
     /* 원시값과 문자열을 포장한다. */
-    private Position position2;
+    private Position position;
 
     public Car(String name) {
         if (StringUtils.isBlank(name)) {
@@ -22,38 +22,38 @@ public class Car {
         }
 
         this.name = new Name(name.trim());
-        this.position2 = new Position();
+        this.position = new Position();
     }
 
     public Name getName() {
         return name;
     }
 
-    public int getPosition() {
-        return position;
+    public int getPositionNumber() {
+        return position.getPosition();
     }
 
     public void move(RandomMovingStrategy strategy) {
         if (strategy.movable()) {
-            position++;
+            position = position.move();
         }
     }
 
     public void move(MovingStrategy strategy) {
         if (strategy.movable()) {
-            position++;
+            position = position.move();
         }
     }
 
     public void move(int randomNumber) {
         if (randomNumber >= MAX_BOUND) {
-            position2 = position2.move();
+            position = position.move();
         }
     }
 
     public void move() {
         if (getRandomNumber() >= FORWARD_INT) {
-            position++;
+            position = position.move();
         }
     }
 
