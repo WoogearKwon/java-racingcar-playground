@@ -1,5 +1,6 @@
 package racing;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class Car {
@@ -7,22 +8,18 @@ public class Car {
     private static final int MAX_BOUND = 10;
 
     private final Name name;
-    private int positionInt;
 
     /* 원시값과 문자열을 포장한다. */
     private Position position;
 
     public Car(String name) {
-        if (StringUtils.isBlank(name)) {
-            throw new IllegalArgumentException("Car name cannot be blank");
-        }
+        this(name, 0);
+    }
 
-        if (name.length() > 5) {
-            throw new IllegalArgumentException("Car name should be within 5 letters");
-        }
-
+    public Car(String name, int position) {
         this.name = new Name(name.trim());
-        this.position = new Position();
+        this.position = new Position(position);
+
     }
 
     public Name getName() {
@@ -60,5 +57,38 @@ public class Car {
     protected int getRandomNumber() {
         Random random = new Random();
         return random.nextInt(MAX_BOUND);
+    }
+
+    public Position getMaxPosition(Position maxPosition) {
+        if (position.isBiggerThan(maxPosition)) {
+            return position;
+        }
+        return maxPosition;
+    }
+
+    public boolean isWinner(Position maxPosition) {
+        return position.equals(maxPosition);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return Objects.equals(name, car.name) &&
+                Objects.equals(position, car.position);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, position);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name=" + name +
+                ", position=" + position +
+                '}';
     }
 }

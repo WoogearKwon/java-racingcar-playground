@@ -40,6 +40,14 @@ public class Position {
         return this;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
+    public boolean isBiggerThan(Position maxPosition) {
+        return position > maxPosition.position;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -53,7 +61,10 @@ public class Position {
         return Objects.hash(position);
     }
 
-    public int getPosition() {
-        return position;
+    @Override
+    public String toString() {
+        return "Position{" +
+                "position=" + position +
+                '}';
     }
 }
