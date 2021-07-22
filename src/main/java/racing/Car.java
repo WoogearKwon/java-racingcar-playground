@@ -5,8 +5,12 @@ public class Car {
     private Position position;
 
     public Car(String name) {
+        this(name, 0);
+    }
+
+    public Car(String name, int position) {
         this.name = new Name(name);
-        position = new Position(0);
+        this.position = new Position(position);
     }
 
     public Name getName() {
@@ -28,4 +32,18 @@ public class Car {
             position = position.move();
         }
     }
+
+    public boolean isWinner(Position maxPosition) {
+        return position.equals(maxPosition);
+    }
+
+    public Position getMaxPosition(Position maxPosition) {
+        if (position.isBiggerThan(maxPosition)) {
+            return position;
+        }
+
+        return maxPosition;
+    }
+
+
 }

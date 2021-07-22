@@ -9,6 +9,18 @@ public class Position {
         this.position = position;
     }
 
+    public int getNumber() {
+        return position;
+    }
+
+    public Position move() {
+        return new Position(position + 1);
+    }
+
+    public boolean isBiggerThan(Position maxPosition) {
+        return position > maxPosition.getNumber();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -20,9 +32,5 @@ public class Position {
     @Override
     public int hashCode() {
         return Objects.hash(position);
-    }
-
-    public Position move() {
-        return new Position(position + 1);
     }
 }
