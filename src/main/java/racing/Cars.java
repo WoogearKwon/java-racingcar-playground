@@ -1,5 +1,7 @@
 package racing;
 
+import view.ResultView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,12 +15,14 @@ public class Cars {
     public void move(int tryNumber) {
         for (int i = 0; i < tryNumber; i++) {
             moveCars();
+            System.out.println();
         }
     }
 
     private void moveCars() {
         for (Car car : cars) {
             car.move();
+            ResultView.printMoveStatus(car);
         }
     }
 
