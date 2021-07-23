@@ -10,7 +10,6 @@ public class Cars {
         this.cars = cars;
     }
 
-
     public List<Car> findWinners() {
         Position maxPosition = new Position(0);
 
@@ -26,5 +25,11 @@ public class Cars {
         }
 
         return winners;
+    }
+
+    public void move() {
+        for (Car car : cars) {
+            car.move(new RandomMovingStrategy());
+        }
     }
 }

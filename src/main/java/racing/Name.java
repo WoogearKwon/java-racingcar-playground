@@ -15,5 +15,8 @@ public class Name {
         this.name = name;
     }
 
-
+    @Override
+    public String toString() {
+        return name;
+    }
 }
