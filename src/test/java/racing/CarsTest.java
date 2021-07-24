@@ -1,6 +1,8 @@
 package racing;
 
 import org.junit.jupiter.api.Test;
+import racing.model.Car;
+import racing.model.Cars;
 
 import java.util.Arrays;
 

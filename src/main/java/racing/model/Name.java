@@ -1,4 +1,6 @@
-package racing;
+package racing.model;
+
+import racing.util.StringUtils;
 
 public class Name {
     private final String name;
