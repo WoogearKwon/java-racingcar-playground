@@ -1,5 +1,7 @@
 package racing.model;
 
+import racing.view.ResultView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +32,7 @@ public class Cars {
     public void move() {
         for (Car car : cars) {
             car.move(new RandomMovingStrategy());
+            ResultView.printMoving(car);
         }
     }
 }

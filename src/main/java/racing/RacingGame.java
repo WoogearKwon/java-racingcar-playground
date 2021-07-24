@@ -17,7 +17,7 @@ public class RacingGame {
             throw new IllegalArgumentException("you should input 3 different names");
         }
 
-        cars = initCars(input);
+        cars = initCars(input.trim());
         this.tryNumber = tryNumber;
     }
 
